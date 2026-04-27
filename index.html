@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Everyone is a Daee — 20 Reasons to Do Dawah ilal Allah, by Hassan Al Rifai. English & Urdu." />
+<title>Everyone is a Daee · ہر شخص داعی ہے</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Amiri:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --parchment: #f6f1e7;
+    --parchment-deep: #ede5d2;
+    --ink: #2a2118;
+    --ink-soft: #5a4a38;
+    --gold: #a8843d;
+    --gold-soft: #c8a45c;
+    --rule: #d9cdb1;
+    --shadow: rgba(74, 55, 22, 0.08);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--parchment);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  body {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.75;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(168, 132, 61, 0.06), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(168, 132, 61, 0.05), transparent 50%);
+    min-height: 100vh;
+  }
+
+  /* Subtle paper grain */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.5 0 0 0 0 0.3 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.7;
+    z-index: 0;
+  }
+
+  /* Top bar with toggle */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(16px) saturate(140%);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    background: rgba(246, 241, 231, 0.78);
+    border-bottom: 1px solid var(--rule);
+    direction: ltr; /* always LTR so toggle stays on the right */
+  }
+
+  .topbar-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 14px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+  }
+
+  .brand .ornament {
+    color: var(--gold);
+    margin: 0 6px;
+  }
+
+  /* Toggle */
+  .toggle {
+    display: inline-flex;
+    background: var(--parchment-deep);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    padding: 3px;
+    position: relative;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.04);
+  }
+
+  .toggle button {
+    border: 0;
+    background: transparent;
+    padding: 7px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--ink-soft);
+    cursor: pointer;
+    border-radius: 999px;
+    transition: color 0.3s ease;
+    position: relative;
+    z-index: 2;
+    font-family: inherit;
+  }
+
+  .toggle button.urdu-label {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 16px;
+    padding-top: 4px;
+    padding-bottom: 10px;
+  }
+
+  .toggle button.active {
+    color: #fff;
+  }
+
+  .toggle .pill {
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    background: linear-gradient(135deg, var(--ink) 0%, #463624 100%);
+    border-radius: 999px;
+    transition: all 0.45s cubic-bezier(0.7, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(42, 33, 24, 0.25);
+    z-index: 1;
+  }
+
+  /* Article container */
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 32px 120px;
+  }
+
+  /* Title block */
+  .frontispiece {
+    text-align: center;
+    margin: 40px 0 80px;
+    padding: 60px 20px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+
+  .frontispiece::before,
+  .frontispiece::after {
+    content: '❦';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--gold);
+    font-size: 22px;
+    background: var(--parchment);
+    padding: 0 14px;
+  }
+  .frontispiece::before { top: -14px; }
+  .frontispiece::after { bottom: -14px; }
+
+  .bismillah {
+    font-family: 'Amiri', serif;
+    font-size: 28px;
+    color: var(--gold);
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+  }
+
+  .frontispiece .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 54px);
+    font-weight: 600;
+    line-height: 1.1;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .frontispiece .subtitle {
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 20px;
+    margin: 0 0 24px;
+  }
+
+  .frontispiece .author {
+    font-size: 14px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Urdu mode for frontispiece */
+  body.lang-ur .frontispiece .title {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: clamp(32px, 5.5vw, 46px);
+    line-height: 1.6;
+    padding-bottom: 8px;
+  }
+
+  body.lang-ur .frontispiece .subtitle {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-style: normal;
+    line-height: 1.6;
+    padding-bottom: 6px;
+  }
+
+  body.lang-ur .frontispiece .author {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    text-transform: none;
+    font-size: 17px;
+    letter-spacing: 0;
+    line-height: 1.6;
+  }
+
+  /* Article content */
+  article {
+    transition: opacity 0.3s ease;
+  }
+
+  article.fading { opacity: 0; }
+
+  article h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 600;
+    margin: 80px 0 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--ink);
+  }
+
+  article h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 18px auto 0;
+  }
+
+  article h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    margin: 48px 0 16px;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  article h2::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  article p {
+    margin: 0 0 22px;
+    text-align: justify;
+    hyphens: auto;
+    color: var(--ink);
+  }
+
+  /* Arabic text within paragraphs */
+  article .arabic {
+    font-family: 'Amiri', serif;
+    font-size: 26px;
+    line-height: 1.9;
+    text-align: center;
+    color: var(--ink);
+    margin: 28px 0;
+    padding: 4px 8px;
+    direction: rtl;
+  }
+
+  /* Quote / italic translation lines */
+  article em, article i {
+    font-style: italic;
+    color: var(--ink-soft);
+  }
+
+  article p strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* Ayah / hadith block (paragraphs that begin with quote+italic) */
+  article .quote-block {
+    margin: 26px 0;
+    padding: 16px 24px;
+    border-left: 2px solid var(--gold);
+    background: rgba(168, 132, 61, 0.04);
+    font-style: italic;
+    color: var(--ink-soft);
+    text-align: left;
+  }
+
+  article .quote-block strong { color: var(--ink); }
+
+  /* === URDU MODE === */
+  body.lang-ur {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 20px;
+    line-height: 2.4;
+  }
+
+  body.lang-ur main { direction: rtl; }
+
+  body.lang-ur article h1 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 34px;
+    line-height: 1.8;
+    padding-bottom: 8px;
+  }
+
+  body.lang-ur article h2 {
+    font-family: 'Noto Nastaliq Urdu', serif;
+    font-size: 24px;
+    line-height: 1.8;
+    padding-bottom: 6px;
+  }
+
+  body.lang-ur article h2::before {
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  body.lang-ur article p {
+    text-align: right;
+    line-height: 2.3;
+  }
+
+  body.lang-ur article .quote-block {
+    border-left: none;
+    border-right: 2px solid var(--gold);
+    text-align: right;
+  }
+
+  body.lang-ur article em,
+  body.lang-ur article i {
+    font-style: normal;
+  }
+
+  /* Loading state */
+  .loading {
+    text-align: center;
+    padding: 80px 0;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 60px 32px 40px;
+    color: var(--ink-soft);
+    font-size: 14px;
+    border-top: 1px solid var(--rule);
+    margin-top: 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  footer .ornament {
+    color: var(--gold);
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  /* Mobile */
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    main { padding: 40px 22px 80px; }
+    .topbar-inner { padding: 10px 18px; justify-content: center; }
+    .brand { display: none; }
+    .frontispiece { padding: 40px 12px; margin-bottom: 50px; }
+    .bismillah { font-size: 22px; }
+    article h1 { font-size: 30px; margin-top: 60px; }
+    article h2 { font-size: 22px; margin-top: 36px; }
+    article .arabic { font-size: 22px; }
+    body.lang-ur { font-size: 18px; }
+    body.lang-ur article h1 { font-size: 26px; }
+    body.lang-ur article h2 { font-size: 20px; }
+    /* Minimum 44px touch target for reliable mobile tapping */
+    .toggle button { padding: 10px 20px; font-size: 14px; min-height: 44px; }
+    .toggle button.urdu-label { font-size: 16px; padding-top: 6px; padding-bottom: 12px; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Selection */
+  ::selection { background: var(--gold-soft); color: #fff; }
+</style>
+</head>
+<body class="lang-en">
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">EVERYONE IS A DAEE <span class="ornament">❦</span> ہر شخص داعی</div>
+    <div class="toggle" role="tablist" aria-label="Language">
+      <span class="pill" id="pill"></span>
+      <button id="btn-en" class="active" role="tab" aria-selected="true">EN</button>
+      <button id="btn-ur" class="urdu-label" role="tab" aria-selected="false">اردو</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="frontispiece" id="frontispiece">
+    <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <h1 class="title" id="book-title">Everyone is a Daee</h1>
+    <p class="subtitle" id="book-subtitle">&amp; 20 Reasons to Do Dawah ilal Allah</p>
+    <p class="author" id="book-author">Hassan Al Rifai</p>
+  </div>
+
+  <article id="content" lang="en">
+    <div class="loading">Loading…</div>
+  </article>
+</main>
+
+<footer>
+  <div class="ornament">❦</div>
+  <div id="footer-text">May Allah accept this work and reward all who share it.</div>
+</footer>
+
+<!-- Load content first, then the app script -->
+<script src="content.js"></script>
+<script>
+  // ---------- Embedded content ----------
+  const CONTENT = window.__BOOK_CONTENT__ || null;
+
+  // ---------- Tiny markdown renderer (handles what this book uses) ----------
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  // Detect if a line is mostly Arabic (used to wrap ayah lines distinctively)
+  function isArabicLine(s) {
+    if (!s) return false;
+    const arabic = (s.match(/[\u0600-\u06FF]/g) || []).length;
+    const latin  = (s.match(/[A-Za-z]/g) || []).length;
+    // Count Arabic dominance, ignoring punctuation/spaces.
+    return arabic > 6 && arabic > latin * 2;
+  }
+
+  function renderInline(s) {
+    s = escapeHtml(s);
+    // Bold ** ** and __ __
+    s = s.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    s = s.replace(/__([^_]+)__/g, '<strong>$1</strong>');
+    // Italic * * (single)
+    s = s.replace(/(^|[^*])\*([^*\n]+)\*/g, '$1<em>$2</em>');
+    // Italic _ _ (single)
+    s = s.replace(/(^|[^_])_([^_\n]+)_/g, '$1<em>$2</em>');
+    return s;
+  }
+
+  function renderMarkdown(md, lang) {
+    const lines = md.split(/\r?\n/);
+    let html = '';
+    let i = 0;
+    // Skip the title block entirely — frontispiece handles it.
+    // We start rendering after the first H1 (book title) and its immediate metadata,
+    // i.e. once we hit the first H1 that begins with "Part" / "حصہ" or anything after
+    // the author note section. Simpler: skip until the first H2 "Author" or first H1 "Part".
+    // Approach: drop everything before the first occurrence of "## Author" / "## مصنف"
+    // OR the first "# Part" / "# حصہ".
+    let startIdx = 0;
+    for (let k = 0; k < lines.length; k++) {
+      const l = lines[k].trim();
+      if (l.startsWith('## ') && (l.includes('Author') || l.includes('مصنف'))) {
+        startIdx = k; break;
+      }
+    }
+    i = startIdx;
+
+    while (i < lines.length) {
+      const line = lines[i];
+      const t = line.trim();
+      if (!t) { i++; continue; }
+
+      if (t.startsWith('# ')) {
+        html += '<h1>' + renderInline(t.slice(2)) + '</h1>\n';
+        i++;
+      } else if (t.startsWith('## ')) {
+        html += '<h2>' + renderInline(t.slice(3)) + '</h2>\n';
+        i++;
+      } else {
+        // Collect a paragraph (consecutive non-empty, non-heading lines)
+        const buf = [];
+        while (i < lines.length && lines[i].trim() && !lines[i].trim().startsWith('#')) {
+          buf.push(lines[i].trim());
+          i++;
+        }
+        const para = buf.join(' ');
+        // Decide rendering style:
+        if (isArabicLine(para) && lang === 'en') {
+          // Pure Arabic verse line in English mode -> centered Arabic block
+          html += '<p class="arabic" dir="rtl">' + escapeHtml(para) + '</p>\n';
+        } else if (para.startsWith('*"') || para.startsWith('*“') || para.startsWith('*\u201C')) {
+          // Italic quoted translation -> quote block
+          html += '<div class="quote-block">' + renderInline(para) + '</div>\n';
+        } else {
+          html += '<p>' + renderInline(para) + '</p>\n';
+        }
+      }
+    }
+    return html;
+  }
+
+  // ---------- Frontispiece text per language ----------
+  const META = {
+    en: {
+      title: 'Everyone is a Daee',
+      subtitle: '& 20 Reasons to Do Dawah ilal Allah',
+      author: 'Hassan Al Rifai',
+      footer: 'May Allah accept this work and reward all who share it.'
+    },
+    ur: {
+      title: 'ہر شخص داعی ہے',
+      subtitle: 'اور دعوۃ الی اللہ کی ۲۰ وجوہات',
+      author: 'از: حسن الرفاعی',
+      footer: 'اللہ اِس کاوش کو قبول فرمائے اور پھیلانے والوں کو اجر عطا کرے۔'
+    }
+  };
+
+  // ---------- App ----------
+  const article = document.getElementById('content');
+  const btnEn = document.getElementById('btn-en');
+  const btnUr = document.getElementById('btn-ur');
+  const pill  = document.getElementById('pill');
+
+  function positionPill(activeBtn) {
+    const r = activeBtn.getBoundingClientRect();
+    const parent = activeBtn.parentElement.getBoundingClientRect();
+    pill.style.left = (r.left - parent.left) + 'px';
+    pill.style.width = r.width + 'px';
+  }
+
+  function setLanguage(lang) {
+    if (!CONTENT) return;
+    const md = CONTENT[lang];
+    if (!md) return;
+
+    article.classList.add('fading');
+    setTimeout(() => {
+      // Update DOM lang & dir
+      document.documentElement.lang = lang === 'ur' ? 'ur' : 'en';
+      document.documentElement.dir = lang === 'ur' ? 'rtl' : 'ltr';
+      document.body.classList.remove('lang-en', 'lang-ur');
+      document.body.classList.add('lang-' + lang);
+
+      // Frontispiece
+      document.getElementById('book-title').textContent = META[lang].title;
+      document.getElementById('book-subtitle').textContent = META[lang].subtitle;
+      document.getElementById('book-author').textContent = META[lang].author;
+      document.getElementById('footer-text').textContent = META[lang].footer;
+
+      // Article
+      article.lang = lang;
+      article.dir = lang === 'ur' ? 'rtl' : 'ltr';
+      article.innerHTML = renderMarkdown(md, lang);
+
+      // Toggle UI
+      btnEn.classList.toggle('active', lang === 'en');
+      btnUr.classList.toggle('active', lang === 'ur');
+      btnEn.setAttribute('aria-selected', lang === 'en');
+      btnUr.setAttribute('aria-selected', lang === 'ur');
+      positionPill(lang === 'en' ? btnEn : btnUr);
+
+      // Persist preference
+      try { localStorage.setItem('book-lang', lang); } catch (e) {}
+
+      article.classList.remove('fading');
+      // Scroll up smoothly only if user is below the fold
+      if (window.scrollY > 200) window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 200);
+  }
+
+  btnEn.addEventListener('click', () => setLanguage('en'));
+  btnUr.addEventListener('click', () => setLanguage('ur'));
+  window.addEventListener('resize', () => {
+    positionPill(document.body.classList.contains('lang-ur') ? btnUr : btnEn);
+  });
+  screen.orientation && screen.orientation.addEventListener('change', () => {
+    requestAnimationFrame(() =>
+      positionPill(document.body.classList.contains('lang-ur') ? btnUr : btnEn)
+    );
+  });
+
+  // Initial render — render immediately, reposition pill after fonts load
+  function init() {
+    let saved = 'en';
+    try { saved = localStorage.getItem('book-lang') || 'en'; } catch (e) {}
+    setLanguage(saved);
+    // Reposition pill once after fonts load (Urdu button width may change)
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        positionPill(document.body.classList.contains('lang-ur') ? btnUr : btnEn);
+      });
+    }
+  }
+
+  // Run immediately if DOM ready, else on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+</script>
+
+<!-- content.js is loaded earlier, before the app script -->
+</body>
+</html>
